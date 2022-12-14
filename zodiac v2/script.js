@@ -1,5 +1,5 @@
 var yearBorn = parseInt(prompt("year of birth"));
-var formula = (yearBorn -4) % 12;
+ formula = (yearBorn -4) % 12;
 
 if(formula == 0){
     alert("your sign is Rat")
