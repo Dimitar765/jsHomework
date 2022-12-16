@@ -27,8 +27,10 @@ else if (fourthNumber > firstNumber && fourthNumber > secondNumber && fourthNumb
 
 }
 
-else {
+else if (fifthNumber > firstNumber && secondNumber && thirdNumber && fourthNumber){
     
     alert("max number is " + fifthNumber);
 
 }
+else 
+    alert("ne e validen input");
