@@ -1,0 +1,10 @@
+
+#colorValue {
+
+    position: relative;
+    padding: 5px;
+    top: 50vh;
+    left: 50vw;
+    font-size: 32px;
+    color: white;
+}
