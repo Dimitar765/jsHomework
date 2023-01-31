@@ -1,0 +1,86 @@
+#container {
+  background-color: gray;
+}
+#logo {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  top: 80px;
+  margin-bottom: 20vh;
+}
+
+#logoImg {
+  width: 80vw;
+  height: 20vh;
+}
+
+#picBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+#personsPic {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 50px;
+}
+
+#starShipPic {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 50px;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+button {
+  display: flex;
+  background-color: antiquewhite;
+  color: black;
+  font-size: 1.2rem;
+  font-family: monospace;
+  justify-content: center;
+}
+#next {
+  padding: 10px;
+  width: 120px;
+}
+
+#previous {
+  padding: 10px;
+  width: 120px;
+}
+
+#nextShipButton {
+  padding: 10px;
+  width: 120px;
+}
+
+#previousShipButton {
+  padding: 10px;
+  width: 120px;
+}
+#table {
+  width: 90vw;
+  margin-left: 5vw;
+}
+
+td {
+  border: 1px solid green;
+  text-align: center;
+  font-size: small;
+}
+
+th {
+  font-size: small;
+  font-weight: light;
+}
