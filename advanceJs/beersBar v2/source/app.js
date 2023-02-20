@@ -1,15 +1,21 @@
 const beersLink = document.getElementById("beersLink");
-console.log(beersLink);
+// console.log(beersLink);
 const randomBeer = document.getElementById("randomBeer");
-console.log(randomBeer);
+// console.log(randomBeer);
+const next = document.getElementById("next");
+const previous = document.getElementById("previous");
 
 const beersContainer = document.getElementById("beersPage");
 const banner = document.getElementById("banner");
 const randomPage = document.getElementById("randomPage");
 const moreInfoPage = document.getElementById("moreInfoPage");
+const pagination = document.getElementById("pag");
 
 const url = "https://api.punkapi.com/v2/beers";
 const randomUrl = "https://api.punkapi.com/v2/beers/random";
+let nextpage = page2;
+let nextUrl = `${url}/${nextpage}`;
+let previousLink;
 let moreInfoLink = "";
 let beers = [];
 let randomB = [];
@@ -17,6 +23,7 @@ let randomB = [];
 beersContainer.style.display = "none";
 randomPage.style.display = "none";
 moreInfoPage.style.display = "none";
+pagination.style.display = "none";
 
 const getBeers = async () => {
   await fetch(url)
@@ -63,7 +70,7 @@ const createBeersPage = () => {
     `;
 
     moreInfoLink = `${url}/${beer.id}`;
-    console.log(moreInfoLink);
+    // console.log(moreInfoLink);
   });
 };
 
@@ -92,9 +99,8 @@ const createBeersPage = () => {
 const createMoreInfoPage = () => {
   beers.forEach((beer, index) => {
     //   moreInfoPage.innerHTML = "";
-    console.log(beers, index);
+    // console.log(beers, index);
     let i = index;
-    console.log(i);
     moreInfoPage.innerHTML = `
           <div class="d-flex justify-content-evenly">
               <div class="container mt-4 ">
@@ -162,14 +168,17 @@ const randomBeerPage = () => {
 
 //events
 
-beersLink.addEventListener("click", function () {
+beersLink.addEventListener("click", function (e) {
+  e.preventDefault();
   beersContainer.style.display = "inline-flex";
+  pagination.style.display = "block";
   banner.style.display = "none";
   randomPage.style.display = "none";
   moreInfoPage.style.display = "none";
 });
 
-randomBeer.addEventListener("click", function () {
+randomBeer.addEventListener("click", function (e) {
+  e.preventDefault();
   beersContainer.style.display = "none";
   banner.style.display = "none";
   randomPage.style.display = "block";
