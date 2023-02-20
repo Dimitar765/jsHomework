@@ -13,8 +13,7 @@ const pagination = document.getElementById("pag");
 
 const url = "https://api.punkapi.com/v2/beers";
 const randomUrl = "https://api.punkapi.com/v2/beers/random";
-let nextpage = page2;
-let nextUrl = `${url}/${nextpage}`;
+// let nextUrl = `${url}/${nextpage}`;
 let previousLink;
 let moreInfoLink = "";
 let beers = [];
@@ -175,6 +174,27 @@ beersLink.addEventListener("click", function (e) {
   banner.style.display = "none";
   randomPage.style.display = "none";
   moreInfoPage.style.display = "none";
+});
+
+// if (btn) {
+//   btn.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     beersContainer.style.display = "none";
+//     banner.style.display = "none";
+//     randomPage.style.display = "none";
+//     moreInfoPage.style.display = "block";
+//     alert("clicked");
+//   });
+// }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("btn");
+
+  console.log(btn);
+  btn?.addEventListener("click", (e) => {
+    beersContainer.style.display = "none";
+    console.log(e.value);
+  });
 });
 
 randomBeer.addEventListener("click", function (e) {
