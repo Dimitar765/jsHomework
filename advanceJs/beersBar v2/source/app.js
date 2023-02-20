@@ -40,8 +40,6 @@ const getBeers = async () => {
 };
 
 const createBeersPage = () => {
-  let btn = document.getElementById("btn");
-  console.log(btn);
   beersContainer.innerHTML = "";
   beers.forEach((beer) => {
     beersContainer.innerHTML += `
@@ -51,12 +49,12 @@ const createBeersPage = () => {
     <div class = "col-12 col-md-6 col-lg-4 mt-4 mb-3">
     <div class="card">
     <h5 class="card-header">${beer.name}</h5>
-    <div class="card-body">4
+    <div class="card-body">
     <img src="${beer.image}" class= "card-img-top mb-3" alt="..." height = "700px">
     <p class="card-text">
     ${beer.tagline}
     </p>
-    <a href="#" class="btn btn-primary" id = "btn">Go somewhere</a>
+    <a href="#" class="btn btn-primary" id = "btn">More info</a>
 
     </div>
     </div>
