@@ -1,9 +1,6 @@
 import { EventEmitter } from "events";
 import { v4 as uuidv4 } from "uuid";
 import fs from "fs";
-// import { stringify } from "querystring";
-
-// import path from "path";
 
 const pathToLog = ".//db/greeting_log.txt";
 const pathToJson = ".//db/students.json";
