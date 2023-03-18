@@ -4,8 +4,8 @@ const blogModel = new BlogModel();
 
 class Controler {
   async listBlogPosts() {
-    const listenBlogPosts = await blogModel.getAllBlogPosts();
-    return listenBlogPosts;
+    const listBlogPosts = await blogModel.getAllBlogPosts();
+    return listBlogPosts;
   }
 
   async createBlogPost(title, body, author, date, tags) {
