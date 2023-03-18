@@ -1,0 +1,46 @@
+[
+  {
+    "id": "df3fd36f-99a1-44c8-b840-d75944c86d5d",
+    "title": "some title",
+    "author": "bob dylan",
+    "date": "to implement date",
+    "tags": [
+      "abc",
+      "def",
+      "gh"
+    ]
+  },
+  {
+    "id": "fa5ca32a-462b-4c5f-b9ec-12553edacf40",
+    "title": "some title",
+    "author": "bob dylan",
+    "date": "to implement date",
+    "tags": [
+      "abc",
+      "def",
+      "gh"
+    ]
+  },
+  {
+    "id": "d7de671a-88d7-44cc-be80-f3f5d1efba63",
+    "title": "some title",
+    "author": "bob dylan",
+    "date": "2023-03-17T23:54:13.726Z",
+    "tags": [
+      "abc",
+      "def",
+      "gh"
+    ]
+  },
+  {
+    "id": "cfb729cd-eee8-4fa8-9529-06a18b5fcb28",
+    "title": "some title",
+    "author": "bob dylan",
+    "date": "2023-03-18T00:00:50.116Z",
+    "tags": [
+      "abc",
+      "def",
+      "gh"
+    ]
+  }
+]
