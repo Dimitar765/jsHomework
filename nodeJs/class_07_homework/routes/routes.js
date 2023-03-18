@@ -6,7 +6,8 @@ const blogControler = new controler();
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  res.send("test sucsefull!");
+  const blogPosts = await blogControler.listBlogPosts();
+  res.send(blogPosts);
 });
 
 router.post("/", async (req, res) => {
