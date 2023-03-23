@@ -30,10 +30,6 @@ class BlogModel {
         blogPost.tags = tags;
         return blogPost;
       }
-      console.log(blogPost.id);
-      // console.log(blogPost.title);
-      // console.log(blogPost.body);
-      // console.log(blogPost.tags);
     });
     await fileServices.writeFile(
       "./db/blog.json",
@@ -41,25 +37,6 @@ class BlogModel {
     );
   }
 
-  // async editBlogPost(id, title, body, tags) {
-  //   const rawBlogPosts = await fileServices.readFile("./db/blog.json");
-  //   const blogPosts = JSON.parse(rawBlogPosts);
-  //   const blogPost = blogPosts.find((blogPost) => blogPost.id === id);
-  //   if (blogPost.id === id) {
-  //     blogPost.title = title;
-  //     blogPost.body = body;
-  //     blogPost.tags = tags;
-  //   }
-  //   console.log(blogPost.id);
-  //   console.log(blogPost.title);
-  //   console.log(blogPost.body);
-  //   console.log(blogPost.tags);
-  //   // console.log(blogPost);
-  //   await fileServices.writeFile(
-  //     "./db/blog.json",
-  //     JSON.stringify(blogPosts, null, 2)
-  //   );
-  // }
   async deleteBlogPost(id) {
     const rawBlogPosts = await fileServices.readFile("./db/blog.json");
     const blogPosts = JSON.parse(rawBlogPosts);

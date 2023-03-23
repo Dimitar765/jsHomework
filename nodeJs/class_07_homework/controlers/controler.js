@@ -12,8 +12,8 @@ class Controler {
     await blogModel.createBlogPost(title, body, author, tags);
   }
 
-  async editBlogPost(title, body, tags) {
-    await blogModel.editBlogPost(title, body, tags);
+  async editBlogPost(id, title, body, tags) {
+    await blogModel.editBlogPost(id, title, body, tags);
   }
 
   async deleteBlogPost(id) {

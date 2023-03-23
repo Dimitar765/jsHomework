@@ -22,11 +22,10 @@ router.post("/", async (req, res) => {
   );
 });
 
-router.patch("/:id", async (req, res) => {
+router.patch("/edit/:id", async (req, res) => {
   const body = req.body;
   const id = req.params.id;
   await blogControler.editBlogPost(id, body.title, body.body, body.tags);
-  console.log(body.tags);
   res.send("Blog post edited");
 });
 
