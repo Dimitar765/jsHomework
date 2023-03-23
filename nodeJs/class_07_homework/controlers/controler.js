@@ -8,8 +8,16 @@ class Controler {
     return listBlogPosts;
   }
 
-  async createBlogPost(title, body, author, date, tags) {
-    await blogModel.createBlogPost(title, body, author, date, tags);
+  async createBlogPost(title, body, author, tags) {
+    await blogModel.createBlogPost(title, body, author, tags);
+  }
+
+  async editBlogPost(title, body, tags) {
+    await blogModel.editBlogPost(title, body, tags);
+  }
+
+  async deleteBlogPost(id) {
+    await blogModel.deleteBlogPost(id);
   }
 }
 

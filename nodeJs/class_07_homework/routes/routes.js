@@ -12,15 +12,28 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   const body = req.body;
-  res.send(body);
+  res.send("new blog post");
 
   await blogControler.createBlogPost(
     body.title,
     body.body,
     body.author,
-    body.date,
     body.tags
   );
+});
+
+router.patch("/:id", async (req, res) => {
+  const body = req.body;
+  const id = req.params.id;
+  await blogControler.editBlogPost(id, body.title, body.body, body.tags);
+  console.log(body.tags);
+  res.send("Blog post edited");
+});
+
+router.delete("/:id", async (req, res) => {
+  const id = req.params.id;
+  await blogControler.deleteBlogPost(id);
+  res.send("Blog post deleted");
 });
 
 export default router;

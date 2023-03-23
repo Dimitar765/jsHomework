@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 
 export class BlogPost {
-  constructor(title, body, author, date, tags) {
+  constructor(title, body, author, tags) {
     this.id = uuidv4();
     this.title = title;
     this.body = body;
