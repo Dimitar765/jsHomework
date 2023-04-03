@@ -29,8 +29,10 @@ class ProductController {
     await productModel.deleteProduct(productId);
     res.send("product deleted");
   }
-  async searchByName(name) {
-    await productModel.searchForProducts(name);
+  async searchByName(req, res) {
+    const { name } = req.body;
+    const product = await productModel.searchForProducts(name);
+    res.send(product);
   }
 }
 

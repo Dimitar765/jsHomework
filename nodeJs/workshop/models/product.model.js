@@ -23,8 +23,7 @@ class ProductModel {
   async deleteProduct(productId) {
     await this.mongo_model.findByIdAndDelete(productId);
   }
-  async searchForProducts(req, res) {
-    const { name } = req.body;
+  async searchForProducts(name) {
     const product = await this.mongo_model.find({ name: { $regex: name } });
     return product;
   }
