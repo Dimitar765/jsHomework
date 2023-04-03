@@ -1,4 +1,4 @@
-import express from "express";
+import express, { query } from "express";
 import controler from "../controlers/controler.js";
 
 const blogControler = new controler();

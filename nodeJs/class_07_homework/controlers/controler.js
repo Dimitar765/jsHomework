@@ -1,3 +1,4 @@
+import { BlogPost } from "../entities/blog-post.js";
 import BlogModel from "../model/blog-model.js";
 
 const blogModel = new BlogModel();
@@ -7,7 +8,6 @@ class Controler {
     const listBlogPosts = await blogModel.getAllBlogPosts();
     return listBlogPosts;
   }
-
   async createBlogPost(title, body, author, tags) {
     await blogModel.createBlogPost(title, body, author, tags);
   }

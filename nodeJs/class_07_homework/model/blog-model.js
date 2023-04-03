@@ -6,6 +6,7 @@ class BlogModel {
     const rawBlogPosts = await fileServices.readFile("./db/blog.json");
     const blogPosts = JSON.parse(rawBlogPosts);
 
+    // console.log(blogPosts);
     return blogPosts;
   }
 
