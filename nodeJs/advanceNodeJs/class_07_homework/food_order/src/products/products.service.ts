@@ -52,7 +52,7 @@ export class ProductsService {
          const updated = products.map((product) => {
             if (product.id === productId){
                 return {
-                    ...product,                    
+                    ...update,                    
                     productName: update.productName,
                     productPrice: update.productPrice
                 }

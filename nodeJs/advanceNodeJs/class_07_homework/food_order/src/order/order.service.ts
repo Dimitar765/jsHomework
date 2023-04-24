@@ -47,7 +47,7 @@ export class OrderService {
         const updated = orders.map((order) => {
             if(order.id === orderId){
                 return {
-                    ...order,
+                    ...updateData,
                     productOrdered: updateData.productOrdered
                 }
             }

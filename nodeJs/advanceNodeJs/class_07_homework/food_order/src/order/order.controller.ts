@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { OrderService } from './order.service';
 import { OrderDto } from './orders.dtos/orders.dto';
 import { UpdateDto } from './orders.dtos/update.order.dto';
@@ -19,11 +19,13 @@ export class OrderController {
     }
 
     @Post()
+    @UsePipes(ValidationPipe)
     createOrder(@Body() orderData: OrderDto){
         return this.orderService.addOrder(orderData)
     }
 
     @Patch("/:id")
+    @UsePipes(ValidationPipe)
    updateOrder(
     @Param("id") orderId: string,
     @Body() updateData: UpdateDto
