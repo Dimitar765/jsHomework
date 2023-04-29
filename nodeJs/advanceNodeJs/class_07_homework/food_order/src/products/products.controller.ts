@@ -18,10 +18,14 @@ export class ProductsController {
         return this.productService.getProductById(productId)
     }
 
-    @Post()
+    @Post(':orderId')
     @UsePipes(ValidationPipe)
-    addProduct(@Body() productData: ProductDto){
-        return this.productService.addProduct(productData)
+    addProduct
+    (@Body() productData: ProductDto,
+    @Param('orderId') orderId:string)
+    
+    {
+        return this.productService.createProduct(productData, orderId)
     }
 
     @Patch("/:id")

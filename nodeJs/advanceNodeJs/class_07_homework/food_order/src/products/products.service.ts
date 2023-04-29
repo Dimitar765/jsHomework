@@ -2,84 +2,90 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { Product } from 'src/interfaces/product.interface';
 import { ProductDto } from './product.dto/product.dto';
 import { UpdateProduct } from './product.dto/update.product.dto'
+import { InjectRepository } from '@nestjs/typeorm';
+import { ProductEntity } from './product_entity/product.entity';
+import { Repository } from 'typeorm';
+import { OrderEntity } from 'src/order/order_entity/order.entity';
 
 
 
 
 @Injectable()
 export class ProductsService {
-    product: Product [] = [
-        {id: "01", productName: "firstProduct", productPrice: 300},
-        {id: "02", productName: "secondProduct", productPrice: 200},
-        {id: "03", productName: "thirdProduct", productPrice: 30}
 
-    ]
+    constructor(
+        @InjectRepository(ProductEntity)
+        private readonly productRepo: Repository<ProductEntity>,
+
+        @InjectRepository(OrderEntity)
+        private readonly orderRepo: Repository<OrderEntity>
+    ){}
+
+    // product: Product [] = [
+    //     {id: "01", productName: "firstProduct", productPrice: 300},
+    //     {id: "02", productName: "secondProduct", productPrice: 200},
+    //     {id: "03", productName: "thirdProduct", productPrice: 30}
+
+    // ]
 
     getProducts(){
-        return this.product
+        return this.productRepo.find({
+            relations: ['order']
+        });
 
     }
 
-     getProductById(productId: string){
-        const product =  this.getProducts();
-        // console.log(product);
+     async getProductById(productId: string){
+        const product = await this.productRepo.findOneBy({id: productId})
+
+        return product;
+    }
+
+    async createProduct(productData: ProductDto, orderId: string): Promise<string>{
+        const order = await this.orderRepo.findOneBy({ id: orderId})
+        // console.log(order);
+
+        const productEntityIstance = this.productRepo.create({
+            ...productData,
+            order: order
+        })
+
+        const productSaved = await this.productRepo.save(productEntityIstance);
+        return productSaved.id
         
-        const productById = product.find((product) => product.id === productId)
-        console.log(productById);
-        if(!productById) {throw new NotFoundException("invalid Id")}
-        else{
 
-            return productById
+        // const newProduct = {
+        //     ...productData,
+        //     order: order
+            
+            
+        // }
+        // this.productRepo.create(newProduct);
+        // this.productRepo.save(newProduct);
+        // return newProduct
 
+    }
+
+      async updateProduct(productId: string, update: UpdateProduct){
+
+        const updateProduct: Product = {
+            id: productId,
+            ...update
         }
-    }
-
-    addProduct(productData: ProductDto){
-        const products = this.getProducts();
-        const newProduct: Product = {
-            ...productData
+        
+        const product = await this.productRepo.preload({
+            id: productId,
+            ...updateProduct
+        });
+        if(!product){
+            throw new NotFoundException("product not faound")
         }
-        products.push(newProduct)
-        return products
-
-
-    }
-
-      updateProduct(productId: string, update: UpdateProduct){
-        
-        this.getProductById(productId)  //error handling
-        const products =   this.getProducts();       
-         const updated = products.map((product) => {
-            if (product.id === productId){
-                return {
-                    ...update,                    
-                    productName: update.productName,
-                    productPrice: update.productPrice
-                }
-                
-            }
-            return product
-        } 
-        )
-        
-        // console.log(updated);
-        return updated
-        
+        await this.productRepo.save(product);
+        return product.id
 
     }
 
-    deleteProduct(productId: string){
-        const products = this.getProducts();
-         const newArray = products.filter((product) => product.id !== productId)
-
-         if(products.length === newArray.length){
-            throw new NotFoundException("nothing to delete")
-
-         }else{
-
-             return newArray
-         }
-
-        }
-    
+    async deleteProduct(productId: string){
+        await this.productRepo.delete(productId);
+}
 }
