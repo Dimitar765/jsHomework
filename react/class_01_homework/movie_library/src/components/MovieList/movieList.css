@@ -1,0 +1,12 @@
+.movieContainer > ul {
+  list-style: none;
+  padding-left: 30px;
+}
+.movieContainer > h3 {
+  padding-left: 30px;
+}
+
+.movieContainer > ul > li {
+  border-left: 1px solid black;
+  padding: 5px;
+}
