@@ -205,26 +205,28 @@ randomBeer.addEventListener("click", function () {
 });
 
 // models
-function BeersPage(
-  id,
-  name,
-  tagline,
-  image,
-  description,
-  first_brewed,
-  ibu,
-  abv,
-  food_pairing
-) {
-  this.id = id;
-  this.name = name;
-  this.tagline = tagline;
-  this.image = image;
-  this.description = description;
-  this.first_brewed = first_brewed;
-  this.ibu = ibu;
-  this.abv = abv;
-  this.food_pairing = food_pairing;
+class BeersPage {
+  constructor(
+    id,
+    name,
+    tagline,
+    image,
+    description,
+    first_brewed,
+    ibu,
+    abv,
+    food_pairing
+  ) {
+    this.id = id;
+    this.name = name;
+    this.tagline = tagline;
+    this.image = image;
+    this.description = description;
+    this.first_brewed = first_brewed;
+    this.ibu = ibu;
+    this.abv = abv;
+    this.food_pairing = food_pairing;
+  }
 }
 
 //init
