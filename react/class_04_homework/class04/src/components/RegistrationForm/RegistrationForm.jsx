@@ -1,7 +1,7 @@
 import { useState } from "react";
 import UserRegistered from "../UserRegistered/UserRegistered";
 import { v4 as uuidv4 } from 'uuid';
-
+import './style.css'
 const RegistrationForm = () => {
  
   const [user, setUser] = useState({
@@ -22,12 +22,12 @@ const RegistrationForm = () => {
     }
 
   const handleRegisterUser = () => {
-      if(user.fullName == "" || user.email == "" || user.password == ""){
+      if(user.fullName == "" || user.email == "" || user.password == "" || user.id == ""){
         return 
       }
     setRegisteredUser([...registeredUser, user]);
     setUser({
-      // id: Date.now(),
+      id: uuidv4(),
       fullName: "",
       email: "",
       password: ""
@@ -45,7 +45,8 @@ const RegistrationForm = () => {
   
   return (
     <>
-      <form method="submit">
+      <div className="container">
+      <form method="submit" className="form">
         <label htmlFor="fullName">Full Name</label>
         <input type="text"  name="fullName" id="fullName" required  
         value={user.fullName} 
@@ -57,14 +58,17 @@ const RegistrationForm = () => {
         <label htmlFor="password">Password</label>
         <input type="password"  name="password" id="password" required
          value={user.password} onChange={(e) => handleAddUser({ ...user, password: e.target.value })} />
+         <div className="btn">
         <button onClick={ handleRegisterUser }>Add user</button>  
+        </div>
       </form>
 
-      
+      <div className="removeBtn">
       <UserRegistered registeredUser={registeredUser}
       handleRemove = {handleRemove}
  /> 
-
+      </div>
+      </div>
 
     </>
   )

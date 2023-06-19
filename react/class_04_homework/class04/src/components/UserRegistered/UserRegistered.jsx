@@ -10,7 +10,7 @@ const UserRegistered = ({registeredUser, handleRemove}) => {
     <ol>
       {registeredUser.map((user) => (
         
-      <li key={user.id}>Full Name: {user.fullName} email: {user.email} id:{user.id}</li>
+      <li key={user.id}>Full Name: {user.fullName} email: {user.email} id: {user.id}</li>
       ))}
     
     </ol>
