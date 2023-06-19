@@ -26,8 +26,10 @@ componentDidMount = async () =>{
     this.setState({
         characters: data.results,
     }) 
+
     
     }
+
 
     render(){
         return(

@@ -1,10 +1,11 @@
 import { useState } from "react";
 import UserRegistered from "../UserRegistered/UserRegistered";
+import { v4 as uuidv4 } from 'uuid';
 
 const RegistrationForm = () => {
  
   const [user, setUser] = useState({
-    'id': Date.now(),
+    'id': uuidv4(),
     'fullName': '',
     'email': '',
     'password': '',
@@ -24,7 +25,13 @@ const RegistrationForm = () => {
       if(user.fullName == "" || user.email == "" || user.password == ""){
         return 
       }
-    setRegisteredUser([...registeredUser, user])
+    setRegisteredUser([...registeredUser, user]);
+    setUser({
+      // id: Date.now(),
+      fullName: "",
+      email: "",
+      password: ""
+    });
 
   
     }
@@ -35,7 +42,7 @@ const RegistrationForm = () => {
     
   }
 
- 
+  
   return (
     <>
       <form method="submit">
