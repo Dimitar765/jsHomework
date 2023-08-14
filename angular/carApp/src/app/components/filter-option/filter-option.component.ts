@@ -10,8 +10,6 @@ export class FilterOptionComponent {
 @Input()
 cars: Car[] = [];
 
-// @Input()
-// garage: Car[] = []
 
 @Output()
 rented = new EventEmitter()
@@ -23,15 +21,15 @@ notRented = new EventEmitter()
 reset = new EventEmitter()
 
 
-onRented (){
+Rented (){
   this.rented.emit()
 }
 
-onNotRented (){
+NotRented (){
   this.notRented.emit()
 }
 
-onReset(){
+Reset(){
   this.reset.emit()
 }
 

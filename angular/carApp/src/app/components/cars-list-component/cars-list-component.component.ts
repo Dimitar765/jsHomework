@@ -22,14 +22,12 @@ export class CarsListComponentComponent {
   carIdReturn = new EventEmitter<number>()
   
 onShowRented(){
- 
   this.rentedCars = this.cars.filter(car => car.isRented === true
   )
-  this.cars = this.rentedCars
-   
+  this.cars = this.rentedCars   
+ 
 }
 onShowAvailable(){
- 
   
 }
 
@@ -38,12 +36,12 @@ onReset (){
  
 }
 
-onRent(carId: number){
+Rent(carId: number){
  this.carIdStart.emit(carId)
  
 }
 
-onReturn(carId: number) {
+Return(carId: number) {
   this.carIdReturn.emit(carId)
   
 }

@@ -10,9 +10,8 @@
                 {{car.isRented === false ? 'available': 'not available' }}
             </p>
             <div class="buttons">
-                <button (click)="onRent(car.id)" class="btn btn-primary"
-                    [disabled]="car.isRented === true">Rent</button>
-                <button (click)="onReturn(car.id)" [disabled]="car.isRented === false"
+                <button (click)="Rent(car.id)" class="btn btn-primary" [disabled]="car.isRented === true">Rent</button>
+                <button (click)="Return(car.id)" [disabled]="car.isRented === false"
                     class="btn btn-primary">Return</button>
             </div>
 
