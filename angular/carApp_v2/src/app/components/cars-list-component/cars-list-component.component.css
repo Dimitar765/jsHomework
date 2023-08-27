@@ -1,0 +1,16 @@
+.cardContainer {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+/* .card {
+    height: 300px;
+} */
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    /* position: absolute; */
+    /* bottom: 0px; */
+}
