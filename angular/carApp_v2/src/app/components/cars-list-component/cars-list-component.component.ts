@@ -9,20 +9,27 @@ import { CarRentingServiceService } from 'src/app/services/car-renting-service.s
 })
 export class CarsListComponentComponent implements OnInit{
   constructor(private readonly carRentingService: CarRentingServiceService){}
-  cars: Car[] = [];
+ 
+ 
+  
+  
+  
+ 
   ngOnInit(): void {
       this.cars = this.carRentingService.showAllCars()
+      console.log(this.cars);
+      
   }
 
 
-  // @Input()
-  // cars: Car[] = [];
   @Input()
-  garage: Car[] = [];
+  cars: Car[] = [];
+  // @Input()
+  // garage: Car[] = [];
+  @Input()
+  filteredcars: Car[] = [];
 
-  // rentedCars: Car[] = [];
-  // availableCars: Car[] = [];
-  filteredars: Car[] = []
+  
 
   @Output()
   carIdStart = new EventEmitter<number>()
@@ -30,23 +37,21 @@ export class CarsListComponentComponent implements OnInit{
   @Output()
   carIdReturn = new EventEmitter<number>()
   
-onShowRented(){
-  this.filteredars = this.cars.filter(car => car.isRented === true
-  )
-  this.cars = this.filteredars   
-  console.log('click');
+rented(){
+  this.cars = this.carRentingService.onShowRented()
+  console.log(this.cars);
   
  
-}
-onShowAvailable(){
   
-  this.filteredars = this.cars.filter(car => car.isRented === false)
-  this.cars = this.filteredars
+}
+available(){
+  
+   this.cars = this.carRentingService.showAvailable();
   
 }
 
 onReset (){
-  this.cars = this.garage
+  this.cars = this.carRentingService.showAllCars()
  
 }
 

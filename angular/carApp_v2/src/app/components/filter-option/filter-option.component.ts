@@ -9,12 +9,13 @@ import { CarRentingServiceService } from 'src/app/services/car-renting-service.s
 })
 export class FilterOptionComponent implements OnInit{
   constructor(private readonly carRentingService: CarRentingServiceService){
-
+    
   }
-
+  
   cars: Car[] = []
   ngOnInit(): void {
-      this.cars = this.carRentingService.showAllCars()
+    this.cars = this.carRentingService.showAllCars()
+    // filteredcars: Car[] = this.carRentingService.showAllCars()
   }
 // @Input()
 // cars: Car[] = [];

@@ -1,10 +1,10 @@
-<app-filter-option (rented)="onShowRented()" (notRented)="onShowAvailable()" (reset)="onReset()"></app-filter-option>
+<app-filter-option (rented)="rented()" (notRented)="available()" (reset)="onReset()"></app-filter-option>
 <div class="cardContainer">
     <div class="container" *ngFor="let car of cars">
         <div class="card">
             <p>model: {{car.model}}</p>
             <p>engine: {{car.engineType}}</p>
-            <p>price per day: {{car.priceToRent}}$</p>
+            <p>price per day: {{car.priceToRent | currency}}</p>
             <p [ngStyle]="{'color': car.isRented === false ? 'green' : 'red'}">
                 {{car.isRented === false ? 'available': 'not available' }}
             </p>

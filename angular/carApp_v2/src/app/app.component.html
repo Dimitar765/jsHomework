@@ -1,4 +1,5 @@
 <div class="container">
   <!-- <app-filter-option></app-filter-option> -->
-  <app-cars-list-component (carIdStart)="onRent($event)" (carIdReturn)="onReturn($event)"></app-cars-list-component>
+  <app-cars-list-component (carIdStart)="rent($event)" (carIdReturn)="return($event)"
+    [cars]="cars"></app-cars-list-component>
 </div>
