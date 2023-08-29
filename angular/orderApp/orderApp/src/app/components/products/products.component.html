@@ -1,1 +1,13 @@
-<p>products works!</p>
+<main class="container">
+    <div class="products" *ngFor="let product of products">
+        <div class="card">
+            <h3>{{product.name}}</h3>
+            <p>{{product.description}}</p>
+            <h4>{{product.price}}</h4>
+            <h4>{{product.category}}</h4>
+            <h4>{{product.stock}}</h4>
+            <button (click)="addOrder(product.id)" [disabled]="product.stock === 0">Add to cart</button>
+
+        </div>
+    </div>
+</main>

@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  title: string = 'STORE'
+  welcomeMesage: string = 'Welcome to our store'
+
 }

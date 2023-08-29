@@ -12,8 +12,7 @@ export class AppComponent implements OnInit {
   title = 'orderApp';
 
   ngOnInit(): void {
-    const test = this.prodService.productData
-    console.log(test);
+
 
   }
 }

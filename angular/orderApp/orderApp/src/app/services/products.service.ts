@@ -1,19 +1,27 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { PRODUCTS_DATA } from '../data/product-data'
 import { Product } from '../interfaces/product.interface';
+// import { OrderService } from './addOrder.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService implements OnInit {
+export class ProductsService {
 
-  constructor() { }
+  constructor(
+  ) { }
 
-  productData: Product[] = PRODUCTS_DATA;
+  _products: Product[] = PRODUCTS_DATA;
+  // _orders: any = []
 
-  ngOnInit(): void {
 
+
+  getProducts(): Product[] {
+    return this._products
   }
+
+
+
 
 
 }
