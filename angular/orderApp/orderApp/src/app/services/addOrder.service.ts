@@ -20,6 +20,7 @@ export class OrderService {
             console.error('Product not found');
             return undefined;
         }
+        this.productToAdd.stock = this.productToAdd.stock - 1
 
         this._orders.push(this.productToAdd);
         return this.productToAdd;
