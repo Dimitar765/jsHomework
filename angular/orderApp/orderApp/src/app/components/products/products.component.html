@@ -3,9 +3,9 @@
         <div class="card">
             <h3>{{product.name}}</h3>
             <p>{{product.description}}</p>
-            <h4>{{product.price}}</h4>
+            <h4>{{product.price | currency}}</h4>
             <h4>{{product.category}}</h4>
-            <h4>{{product.stock}}</h4>
+            <h4>in stock: {{product.stock}}</h4>
             <button (click)="addOrder(product.id)" [disabled]="product.stock === 0">Add to cart</button>
 
         </div>

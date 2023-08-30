@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/interfaces/product.interface';
 import { OrderService } from 'src/app/services/addOrder.service';
 import { ProductsService } from 'src/app/services/products.service';
@@ -17,23 +17,19 @@ export class ProductsComponent implements OnInit {
   ) {
   }
 
-  @Output()
-  orderId = new EventEmitter<number>()
+  // @Output()
+  // orderId = new EventEmitter<number>()
 
   ngOnInit(): void {
     this.products = this.productService.getProducts()
-    // console.log(this.products);
-    const temp = this.orderService.getOrders()
-    console.log(temp);
-
 
   }
 
-  order(orderId: number) {
-    this.orderId.emit(orderId)
-    console.log(orderId);
+  // order(orderId: number) {
+  //   this.orderId.emit(orderId)
+  //   console.log(orderId);
 
-  }
+  // }
 
   addOrder(id: number) {
     this.orderService.addToOrders(id)

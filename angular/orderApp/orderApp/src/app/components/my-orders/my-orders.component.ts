@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/interfaces/product.interface';
 import { OrderService } from 'src/app/services/addOrder.service';
-import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-my-orders',
@@ -9,7 +8,7 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./my-orders.component.css']
 })
 export class MyOrdersComponent implements OnInit {
-  constructor(private readonly productService: ProductsService,
+  constructor(
     private readonly orderService: OrderService
   ) { }
 
@@ -17,9 +16,7 @@ export class MyOrdersComponent implements OnInit {
 
   ngOnInit(): void {
     this.orders = this.orderService._orders
-    console.log(this.orders);
+    // console.log(this.orders);
   }
-
-
 
 }
