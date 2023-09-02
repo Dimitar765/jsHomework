@@ -10,7 +10,6 @@ export class OrderService {
     private _products: Product[] = PRODUCTS_DATA;
     _orders: Product[] = [];
     productToAdd: Product | undefined;
-    quantity: number = 0;
 
     constructor() { }
 
@@ -23,16 +22,27 @@ export class OrderService {
         }
         this.productToAdd.stock = this.productToAdd.stock - 1
         this.productToAdd.quantity = (this.productToAdd.quantity ?? 0) + 1
-        console.log(this.productToAdd.quantity);
+        // console.log(this.productToAdd.quantity);
 
-
-        this._orders.push(this.productToAdd);
+        this._orders = [...this._orders, this.productToAdd];
         return this.productToAdd;
     }
+
+    getUnique(_orders: Product[]): Product[] {
+        const products = Array.from(new Set(_orders))
+        console.log('from order service', products);
+        return products
+
+    }
+
 
     getOrders() {
         console.log(this._orders);
 
         return this._orders
     }
+
 }
+
+
+

@@ -13,10 +13,12 @@ export class MyOrdersComponent implements OnInit {
   ) { }
 
   orders: Product[] = [];
+  xyz: any;
 
   ngOnInit(): void {
     this.orders = this.orderService._orders
-    // console.log(this.orders);
+    this.xyz = this.orderService.getUnique(this.orders)
+    console.log(this.xyz);
   }
 
 }
