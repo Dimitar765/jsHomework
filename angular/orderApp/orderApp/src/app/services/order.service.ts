@@ -9,7 +9,8 @@ export class OrderService {
 
     private _products: Product[] = PRODUCTS_DATA;
     _orders: Product[] = [];
-    productToAdd: Product | undefined
+    productToAdd: Product | undefined;
+    quantity: number = 0;
 
     constructor() { }
 
@@ -20,13 +21,18 @@ export class OrderService {
             console.error('Product not found');
             return undefined;
         }
-        this.productToAdd.stock = this.productToAdd.stock - 1;
+        this.productToAdd.stock = this.productToAdd.stock - 1
+        this.productToAdd.quantity = (this.productToAdd.quantity ?? 0) + 1
+        console.log(this.productToAdd.quantity);
+
 
         this._orders.push(this.productToAdd);
         return this.productToAdd;
     }
 
     getOrders() {
+        console.log(this._orders);
+
         return this._orders
     }
 }
