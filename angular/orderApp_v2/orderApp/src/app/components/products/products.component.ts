@@ -17,10 +17,7 @@ export class ProductsComponent implements OnInit {
   ) {
   }
 
-
-
   ngOnInit(): void {
-    // this.products = this.productService.getProducts()
     this.productService.productObsevable.subscribe((data) => {
       this.products = data as Product[]
 

@@ -14,14 +14,12 @@ export class ProductsService {
 
   productObsevable = new Observable((observer) => {
     observer.next(this._products)
-    // console.log(this.productObsevable);
-
 
   })
 
 
-  getProducts(): Product[] {
-    return this._products
-  }
+  // getProducts(): Product[] {
+  //   return this._products
+  // }
 
 }
