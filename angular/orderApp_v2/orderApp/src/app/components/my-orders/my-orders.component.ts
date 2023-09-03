@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
 import { Product } from 'src/app/interfaces/product.interface';
 import { OrderService } from 'src/app/services/order.service';
 
@@ -14,19 +13,16 @@ export class MyOrdersComponent implements OnInit {
   ) { }
 
   orders: Product[] = [];
-  xyz: Product[];
-  tempOrder: any
+  uniqueOrders: Product[];
+  // tempOrder: any
 
   ngOnInit(): void {
-    // this.orders = this.orderService._orders
+    this.orders = this.orderService.getOrders()
+    this.uniqueOrders = this.orderService.getUnique(this.orders)
+
     this.orderService.orderObservable.subscribe((data) => {
-      this.tempOrder = data
-      this.orders = this.tempOrder
-      // console.log(this.tempOrder);
+      console.log(data);
 
     })
-    this.xyz = this.orderService.getUnique(this.orders)
-
   }
-
 }

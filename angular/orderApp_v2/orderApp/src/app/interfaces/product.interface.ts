@@ -6,5 +6,6 @@ export interface Product {
     category: string,
     stock: number,
     quantity?: number
+    totalPrice?: number
 }
 

@@ -20,9 +20,10 @@ export class ProductsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts()
+    // this.products = this.productService.getProducts()
     this.productService.productObsevable.subscribe((data) => {
       console.log('data from obs', data);
+      this.products = data as Product[]
 
     })
 

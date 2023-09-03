@@ -2,10 +2,12 @@
     <div class="products" *ngFor="let product of products">
         <div class="card">
             <h3>{{product.name}}</h3>
+            <h4>{{product.category}}</h4>
             <p>{{product.description}}</p>
             <h4>{{product.price | currency}}</h4>
-            <h4>{{product.category}}</h4>
             <h4>in stock: {{product.stock}}</h4>
+            <h4 [hidden]="!product.quantity">you ordered {{product.quantity}} item[s]</h4>
+            <h4 [hidden]="!product.quantity"> for total price of {{product.totalPrice | currency}}</h4>
             <button (click)="addOrder(product.id)" [disabled]="product.stock === 0">Add to cart</button>
 
         </div>
