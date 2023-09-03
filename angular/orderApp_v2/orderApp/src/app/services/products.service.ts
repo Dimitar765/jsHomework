@@ -14,7 +14,6 @@ export class ProductsService {
   _products: Product[] = PRODUCTS_DATA;
 
   productObsevable = new Observable((observer) => {
-    console.log(observer);
     observer.next(this._products)
 
   })
@@ -23,9 +22,5 @@ export class ProductsService {
   getProducts(): Product[] {
     return this._products
   }
-
-
-
-
 
 }

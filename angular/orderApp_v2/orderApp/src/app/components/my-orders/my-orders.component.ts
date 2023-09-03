@@ -20,9 +20,11 @@ export class MyOrdersComponent implements OnInit {
     this.orders = this.orderService.getOrders()
     this.uniqueOrders = this.orderService.getUnique(this.orders)
 
-    this.orderService.orderObservable.subscribe((data) => {
-      console.log(data);
+    // this.orderService.orderObservable.subscribe((data) => {
+    //   console.log('data from obs in order component', data);
 
-    })
+    // })
+
+
   }
 }
