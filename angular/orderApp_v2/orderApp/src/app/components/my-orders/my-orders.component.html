@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="orders" *ngFor="let order of xyz">
+        <div class="card">
+            <h3>{{order.name}}</h3>
+            <p>{{order.description}}</p>
+            <h4>{{order.price | currency}}</h4>
+            <h4>{{order.category}}</h4>
+            <h4>Quantity: {{order.quantity}}</h4>
+        </div>
+
+    </div>
+</div>
+<button routerLink="/products">back</button>

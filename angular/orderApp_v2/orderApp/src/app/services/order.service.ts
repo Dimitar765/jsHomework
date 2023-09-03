@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { PRODUCTS_DATA } from "../data/product-data";
 import { Product } from "../interfaces/product.interface";
-import { Observable, of } from "rxjs";
+import { Observable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -11,10 +11,12 @@ export class OrderService {
     private _products: Product[] = PRODUCTS_DATA;
     _orders: Product[] = [];
     productToAdd: Product | undefined;
-    _testProduct: Observable<Product[]>;
 
     constructor() { }
 
+    orderObservable = new Observable<Product[]>((observer) => {
+        observer.next(this._orders)
+    })
 
     addToOrders(productId: number): Product | undefined {
         this.productToAdd = this._products.find(product => product.id === productId);
@@ -24,15 +26,13 @@ export class OrderService {
         }
         this.productToAdd.stock = this.productToAdd.stock - 1
         this.productToAdd.quantity = (this.productToAdd.quantity ?? 0) + 1
-        // console.log(this.productToAdd.quantity);
 
         this._orders = [...this._orders, this.productToAdd];
-        // this._testProduct = this._orders
         return this.productToAdd;
     }
 
-    getUnique(_orders: Product[]): Product[] {
-        const products = Array.from(new Set<Product>(_orders))
+    getUnique(orderObservable: Product[]): Product[] {
+        const products = Array.from(new Set<Product>(orderObservable))
         console.log('from order service', products);
         return products
 

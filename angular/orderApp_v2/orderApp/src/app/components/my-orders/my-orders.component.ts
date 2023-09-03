@@ -15,9 +15,16 @@ export class MyOrdersComponent implements OnInit {
 
   orders: Product[] = [];
   xyz: Product[];
+  tempOrder: any
 
   ngOnInit(): void {
-    this.orders = this.orderService._orders
+    // this.orders = this.orderService._orders
+    this.orderService.orderObservable.subscribe((data) => {
+      this.tempOrder = data
+      this.orders = this.tempOrder
+      // console.log(this.tempOrder);
+
+    })
     this.xyz = this.orderService.getUnique(this.orders)
 
   }
