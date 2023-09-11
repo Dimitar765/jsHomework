@@ -1,0 +1,27 @@
+.card {
+    border: 1px solid black;
+    width: 30vw;
+    text-align: center;
+    /* margin: auto, 0; */
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+
+}
+
+.formElement {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+
+}
+
+.btnGroup {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 10px;
+}

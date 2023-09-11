@@ -1,8 +1,15 @@
 <main>
+    <div class="formElement">
+        <app-create-post-page></app-create-post-page>
+    </div>
     <div class="cardContainer" *ngFor="let post of posts">
         <div class="card">
             <h1>{{post.title}}</h1>
             <p>{{post.content}}</p>
+            <div class="btnGroup">
+                <button>Like</button>
+                <button>Comment</button>
+            </div>
         </div>
     </div>
 </main>

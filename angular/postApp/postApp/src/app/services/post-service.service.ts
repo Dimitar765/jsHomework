@@ -28,7 +28,7 @@ export class PostServiceService {
       title: title,
       content: content,
       createdAt: Timestamp.fromDate(new Date())
-    };
+    }
     const postColection = collection(this.fireStore, 'posts')
 
     return from(addDoc(postColection, postToBeCreated))

@@ -16,10 +16,12 @@ export class PostPageComponent implements OnInit {
     const temp = this.postService.getPosts()
     temp.subscribe((data) => {
       this.posts = data;
-      console.log(this.posts);
+      console.log(this.posts)
+
 
 
     })
+
   }
 
 }

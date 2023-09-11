@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { Post } from 'src/app/interfaces/postInteface';
 import { PostServiceService } from 'src/app/services/post-service.service';
 
@@ -13,6 +14,7 @@ export class CreatePostPageComponent implements OnInit {
   constructor(private readonly postService: PostServiceService) { }
 
   postForm: FormGroup
+  postData = new BehaviorSubject<any>([])
 
   ngOnInit(): void {
     this.initForm()
@@ -31,10 +33,8 @@ export class CreatePostPageComponent implements OnInit {
 
   onFormSubmit = () => {
     const postData: Post = this.postForm.value
-    const test = this.postService.createPost(postData.title, postData.content)
-    console.log(this.postForm.value);
-    console.log('from test', test);
-
+    this.postService.createPost(postData.
+      title, postData.content).subscribe()
 
     return postData
 

@@ -8,7 +8,7 @@ import { AboutPageComponent } from './components/about-page/about-page.component
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'post', component: PostPageComponent },
-  { path: 'createpost', component: CreatePostPageComponent },
+  // { path: 'createpost', component: CreatePostPageComponent },
   { path: 'about', component: AboutPageComponent }
 ];
 
